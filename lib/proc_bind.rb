@@ -1,9 +1,8 @@
 class Proc
     def bind(pos, value)
-        # FIXME, use a collect exeception class
-        raise ArgumentError unless parameters.size >= pos
+        raise ArgumentError.new("wrong position of argument (#{pos} for #{arity})") unless arity >= pos || pos < 0
 
-        case [parameters.size, pos]
+        case [arity, pos]
         when [1, 1] then Proc.new { call(value) }
 
         when [2, 1] then Proc.new { |a| call(value, a) }
@@ -39,7 +38,7 @@ class Proc
         when [7, 6] then Proc.new { |a, b, c, d, e, f| call(a, b, c, d, e, value, f) }
         when [7, 7] then Proc.new { |a, b, c, d, e, f| call(a, b, c, d, e, f, vlaue) }
 
-        else raise ArgumentError
+        else raise NotImplementedError.new("only implemented for Proc with 7 argument or below")
         end
     end
 end
