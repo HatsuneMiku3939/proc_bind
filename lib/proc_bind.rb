@@ -1,6 +1,6 @@
 class Proc
     def bind(pos, value)
-        raise ArgumentError.new("wrong position of argument (#{pos} for #{arity})") unless arity >= pos || pos < 0
+        raise ArgumentError.new("wrong position of argument (#{pos} for #{arity})") unless (1..arity).include?(pos)
 
         case [arity, pos]
         when [1, 1] then Proc.new { call(value) }
