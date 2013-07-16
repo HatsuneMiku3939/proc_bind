@@ -30,7 +30,6 @@ class ProcBindTest <  Test::Unit::TestCase
     p2 = p3.bind(1, "hello", "world", "yahoo")
 
     assert_equal p2.call(), p4.call("hello", "hello", "world", "yahoo")
-    # assert_equal p4.call("hello", "hello", "world", "yahoo"), nil
   end
 
   def test_proc_with_4_arg
