@@ -3,6 +3,7 @@ class Proc
     Proc.new { |*arguments| call(*inject_value_to_arguments(pos, values, arguments)) }
   end
 
+  private
   def inject_value_to_arguments(pos, values, arguments)
     size = arguments.size
     case pos
