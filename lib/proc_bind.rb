@@ -9,7 +9,7 @@ class Proc
     when 1       then values + arguments
     when 2..size then arguments[0, pos] + values + arguments[pos, size]
     when size+1  then arguments + values
-    else ArgumentError.new("wrong position of argument (#{pos} for #{arguments})")
+    else raise ArgumentError.new("wrong position of argument (#{pos} for #{arguments})")
     end
   end
 end
