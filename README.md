@@ -1,6 +1,6 @@
 proc_bind
 =========
 
-add a argument binding feature for Class: Proc
+add an argument binding feature for Class: Proc
 
 juse for fun!
